@@ -1,0 +1,52 @@
+<template name="insertitem">
+  <div class="row container">
+
+    {{#autoForm collection="Items" id="insertItemForm" type="insert"}}
+
+         <legend>Add an Item</legend>
+
+          {{> afQuickField name="product" options=productOptions}}
+
+         {{> afQuickField name="barcode"}}
+         {{> afQuickField name="manufactureDate"}}
+         {{> afQuickField name="purchaseDate"}}
+         {{> afQuickField name="expiryDate"}}
+         {{> afQuickField name="price"}}
+         {{> afQuickField name="discount"}}
+
+         <div>
+           <button class="btn waves-effect waves-light" type="submit">Insert Item</button>
+           <button class="btn waves-effect waves-light" type="reset">Cancel</button>
+         </div>
+    {{/autoForm}}
+  </div>
+
+<div class="row container">
+  <table class="striped responsive-table">
+    <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Barcode</th>
+          <th>MFG</th>
+          <th>PD</th>
+          <th>EXP</th>
+          <th>Price</th>
+          <th>Discount</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each itemsList}}
+            <tr>
+              <td>{{product}}</td>
+              <td>{{barcode}}</td>
+              <td>{{mfg}}</td>
+              <td>{{pd}}</td>
+              <td>{{exp}}</td>
+              <td>{{price}}</td>
+              <td>{{discount}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+  </table>
+</div>
+</template>
